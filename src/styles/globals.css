@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#faf8f5] dark:bg-[#09090b] text-[#18181b] dark:text-[#f4f4f5] font-sans transition-colors duration-300;
+  }
+
+  /* Focus outline styles for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-emerald-500 ring-offset-2 ring-offset-white dark:ring-offset-[#09090b];
+  }
+}
+
+@layer utilities {
+  .bg-warm-light {
+    background-color: #faf8f5;
+  }
+  .bg-warm-card {
+    background-color: #ffffff;
+  }
+  .bg-dark-card {
+    background-color: #141417;
+  }
+  .border-light-subtle {
+    border-color: #e4e4e7;
+  }
+  .border-dark-subtle {
+    border-color: #27272a;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
