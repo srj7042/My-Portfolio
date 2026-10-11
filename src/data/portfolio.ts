@@ -16,7 +16,7 @@ export const personalInfo: PersonalInfo = {
     linkedin: "https://www.linkedin.com/in/suraj-jaiswal-8b746830a/",
     email: "surajjaiswal4222@gmail.com",
   },
-  resumeUrl: "#resume",
+  resumeUrl: "/Suraj_Resume.pdf",
 };
 
 export const skillCategories: SkillCategory[] = [

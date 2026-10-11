@@ -47,14 +47,26 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           </div>
 
           <div className="flex items-center gap-3">
-            <button
-              onClick={handleDownloadPdf}
+            <a
+              href="/Suraj_Resume.pdf"
+              download="Suraj_Jaiswal_Resume.pdf"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-sm"
-              title="Download or Print PDF Resume"
+              title="Download Official PDF Resume"
             >
               <Download className="w-4 h-4" />
-              <span>Download / Save as PDF</span>
-            </button>
+              <span>Download PDF</span>
+            </a>
+
+            <a
+              href="/Suraj_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-medium transition-colors"
+              title="Open Original PDF in New Tab"
+            >
+              <ExternalLink className="w-4 h-4" />
+              <span className="hidden sm:inline">Open PDF</span>
+            </a>
 
             <button
               onClick={handleDownloadPdf}
@@ -106,7 +118,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               PROFESSIONAL SUMMARY
             </h2>
             <p className="text-justify text-gray-800 text-xs leading-normal">
-              Third-year B.Tech Computer Science (AI &amp; ML) student with hands-on experience in backend engineering, REST APIs, AI/ML systems, and full-stack application development. Proficient in Python, Java, Flask, FastAPI, Node.js, React, SQL/NoSQL databases, and cloud deployment. Experienced in building production-oriented systems involving generative AI, computer vision, fraud detection, authentication, and distributed processing. Strong foundation in Data Structures, DBMS, Machine Learning, and Software Engineering.
+              Third-year B.Tech Computer Science (AI &amp; ML) student with hands-on experience in backend engineering, REST APIs, AI/ML systems, and full-stack application development. Proficient in Python, Java, C++, Flask, FastAPI, Node.js, React, SQL/NoSQL databases, and cloud deployment. Experienced in building production-oriented systems involving generative AI, computer vision, fraud detection, authentication, and distributed processing. Strong foundation in Data Structures, DBMS, Machine Learning, and Software Engineering.
             </p>
           </section>
 
@@ -184,82 +196,86 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           {/* Selected Projects */}
           <section className="mb-5">
             <h2 className="text-sm font-bold uppercase tracking-wider text-gray-900 border-b border-gray-900 pb-0.5 mb-2 font-serif">
-              SELECTED PROJECTS
+              PROJECTS
             </h2>
 
             <div className="space-y-3.5">
-              {/* Abhyaas */}
+              {/* YOLO-Driven Automated Attendance System */}
               <div>
                 <div className="flex items-baseline justify-between">
                   <span className="font-bold text-gray-900">
-                    Abhyaas – AI Personalized Learning Path Recommender
-                  </span>
-                  <a href="https://github.com/srj7042/Abhyaas" target="_blank" rel="noopener noreferrer" className="text-blue-700 font-sans text-xs hover:underline inline-flex items-center gap-0.5">
-                    GitHub <ExternalLink className="w-2.5 h-2.5" />
-                  </a>
-                </div>
-                <ul className="list-disc pl-5 space-y-0.5 text-xs text-gray-800 mt-1">
-                  <li>Built an AI-powered learning platform that generates personalized, step-by-step learning roadmaps based on career goals and existing skills.</li>
-                  <li>Implemented AI tutoring modes including concept explanation, Socratic dialogue, mini-exams, interview simulation, debugging, flashcards, and career mentoring.</li>
-                  <li className="font-sans text-[11px]">
-                    <span className="font-bold">Tech:</span> Next.js, React, TypeScript, Tailwind CSS, Google Gemini API, Supabase PostgreSQL, Supabase Auth, Recharts.
-                  </li>
-                </ul>
-              </div>
-
-              {/* Savdhaan */}
-              <div>
-                <div className="flex items-baseline justify-between">
-                  <span className="font-bold text-gray-900">
-                    Savdhaan – Collaborative Fintech Fraud Detection Platform
-                  </span>
-                  <a href="https://github.com/srj7042/Savdhaan" target="_blank" rel="noopener noreferrer" className="text-blue-700 font-sans text-xs hover:underline inline-flex items-center gap-0.5">
-                    GitHub <ExternalLink className="w-2.5 h-2.5" />
-                  </a>
-                </div>
-                <ul className="list-disc pl-5 space-y-0.5 text-xs text-gray-800 mt-1">
-                  <li>Developed a fraud-analysis platform for identifying anomalous transaction clusters, multi-hop financial fraud, and money laundering patterns.</li>
-                  <li>Implemented graph-based analysis using Tarjan’s Strongly Connected Components and Isolation Forest with asynchronous distributed processing.</li>
-                  <li className="font-sans text-[11px]">
-                    <span className="font-bold">Tech:</span> FastAPI, React, TypeScript, Neo4j, SQLite, NetworkX, Scikit-learn, Celery, Redis, Docker.
-                  </li>
-                </ul>
-              </div>
-
-              {/* QRSaaS */}
-              <div>
-                <div className="flex items-baseline justify-between">
-                  <span className="font-bold text-gray-900">
-                    QRSaaS – Full-Stack QR Code Generator &amp; Scanner
-                  </span>
-                  <a href="https://github.com/srj7042/qr-code-saas" target="_blank" rel="noopener noreferrer" className="text-blue-700 font-sans text-xs hover:underline inline-flex items-center gap-0.5">
-                    GitHub <ExternalLink className="w-2.5 h-2.5" />
-                  </a>
-                </div>
-                <ul className="list-disc pl-5 space-y-0.5 text-xs text-gray-800 mt-1">
-                  <li>Built a production-oriented SaaS application for generating, customizing, scanning, and managing QR codes with persistent user history.</li>
-                  <li>Implemented JWT authentication, protected dashboards, guest usage limits, QR scanning through device cameras, and responsive dark-mode UI.</li>
-                  <li className="font-sans text-[11px]">
-                    <span className="font-bold">Tech:</span> React, Vite, Tailwind CSS, Node.js, Express.js, MongoDB, Mongoose, JWT, bcrypt, Vercel, Render.
-                  </li>
-                </ul>
-              </div>
-
-              {/* AI-Based Attendance Management System */}
-              <div>
-                <div className="flex items-baseline justify-between">
-                  <span className="font-bold text-gray-900">
-                    AI-Based Attendance Management System
+                    YOLO-Driven Automated Attendance System
                   </span>
                   <a href="https://github.com/srj7042/YOLO_Attend" target="_blank" rel="noopener noreferrer" className="text-blue-700 font-sans text-xs hover:underline inline-flex items-center gap-0.5">
                     GitHub <ExternalLink className="w-2.5 h-2.5" />
                   </a>
                 </div>
                 <ul className="list-disc pl-5 space-y-0.5 text-xs text-gray-800 mt-1">
-                  <li>Developed an automated attendance system combining YOLOv8 face detection with FaceNet-based face recognition and a Flask web application.</li>
-                  <li>Integrated database-backed attendance storage, real-time recognition workflows, and analytics for attendance monitoring.</li>
+                  <li>Built an image-based automated attendance system using YOLOv8 for person detection and FaceNet for face recognition and student identification.</li>
+                  <li>Developed a Flask backend with role-based access for Admin and Teachers, supporting student management, attendance tracking, manual overrides, reports, and analytics.</li>
+                  <li>Designed database workflows using PostgreSQL/SQLite to manage students, users, attendance records, confidence scores, timestamps, and uploaded images.</li>
                   <li className="font-sans text-[11px]">
-                    <span className="font-bold">Tech:</span> Python, YOLOv8, FaceNet, OpenCV, Flask, SQLite, Chart.js.
+                    <span className="font-bold">Tech:</span> Python, Flask, YOLOv8, FaceNet, PostgreSQL, OpenCV.
+                  </li>
+                </ul>
+              </div>
+
+              {/* BidRakshak */}
+              <div>
+                <div className="flex items-baseline justify-between">
+                  <span className="font-bold text-gray-900">
+                    BidRakshak – GeM Compliance Verification Platform
+                  </span>
+                  <a href="https://github.com/srj7042/BidRakshak" target="_blank" rel="noopener noreferrer" className="text-blue-700 font-sans text-xs hover:underline inline-flex items-center gap-0.5">
+                    GitHub <ExternalLink className="w-2.5 h-2.5" />
+                  </a>
+                </div>
+                <ul className="list-disc pl-5 space-y-0.5 text-xs text-gray-800 mt-1">
+                  <li>Developed an automated procurement compliance platform to validate vendor documents against 15+ compliance checks, including GST, PAN, MSME, EPFO, ESIC, BIS, and Make in India requirements.</li>
+                  <li>Built FastAPI REST APIs, JWT authentication, role-based access control, audit logging, and a configurable rules engine for compliance verification.</li>
+                  <li>Integrated OCR and LLM pipelines to extract structured information from uploaded documents and generate evidence-backed compliance results.</li>
+                  <li className="font-sans text-[11px]">
+                    <span className="font-bold">Tech:</span> FastAPI, Next.js, PostgreSQL, OCR, LLM.
+                  </li>
+                </ul>
+              </div>
+
+              {/* PolicyPilot */}
+              <div>
+                <div className="flex items-baseline justify-between">
+                  <span className="font-bold text-gray-900">
+                    PolicyPilot – Insurance Policy Analysis Platform
+                  </span>
+                  <span className="text-gray-500 font-sans text-[11px]">
+                    Python • PDF Processing • OCR • LLM
+                  </span>
+                </div>
+                <ul className="list-disc pl-5 space-y-0.5 text-xs text-gray-800 mt-1">
+                  <li>Built an insurance document analysis system that extracts and structures important information from uploaded policy PDFs.</li>
+                  <li>Extracted key attributes including premium, coverage, waiting periods, room-rent limits, co-pay, deductibles, exclusions, claims, and renewal conditions.</li>
+                  <li>Designed structured analysis workflows to simplify insurance policy comparison and highlight important coverage conditions and limitations.</li>
+                  <li className="font-sans text-[11px]">
+                    <span className="font-bold">Tech:</span> Python, PDF Processing, OCR, LLM.
+                  </li>
+                </ul>
+              </div>
+
+              {/* Abhyaas */}
+              <div>
+                <div className="flex items-baseline justify-between">
+                  <span className="font-bold text-gray-900">
+                    Abhyaas – AI Learning Path Recommender
+                  </span>
+                  <a href="https://github.com/srj7042/Abhyaas" target="_blank" rel="noopener noreferrer" className="text-blue-700 font-sans text-xs hover:underline inline-flex items-center gap-0.5">
+                    GitHub <ExternalLink className="w-2.5 h-2.5" />
+                  </a>
+                </div>
+                <ul className="list-disc pl-5 space-y-0.5 text-xs text-gray-800 mt-1">
+                  <li>Developed an AI-driven learning platform that generates personalized learning paths based on learner goals, existing skills, and diagnostic assessments.</li>
+                  <li>Implemented Skill Twin, Skill Graph, Gap Analyzer, AI Tutor, adaptive rerouting, and explainable recommendation features.</li>
+                  <li>Built dynamic learner profiles and progress visualization using Next.js, TypeScript, Supabase, Gemini API, and Recharts.</li>
+                  <li className="font-sans text-[11px]">
+                    <span className="font-bold">Tech:</span> Next.js, TypeScript, Supabase, Gemini API, Recharts.
                   </li>
                 </ul>
               </div>
@@ -276,7 +292,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               <div><span className="font-bold">Backend:</span> Flask, FastAPI, Node.js, Express.js, REST APIs</div>
               <div><span className="font-bold">Frontend:</span> React.js, Next.js, HTML, CSS, Tailwind CSS, Vite</div>
               <div><span className="font-bold">AI/ML:</span> YOLOv8, FaceNet, OpenCV, DeepFace, TensorFlow, Keras, Scikit-learn, NumPy, Pandas</div>
-              <div><span className="font-bold">Databases:</span> PostgreSQL, MySQL, SQLite, MongoDB, MongoDB Atlas</div>
+              <div><span className="font-bold">Databases:</span> PostgreSQL, MySQL, MongoDB</div>
               <div><span className="font-bold">Cloud/DevOps:</span> AWS, Azure, Docker, Terraform, Vercel, Git, GitHub</div>
               <div><span className="font-bold">Core CS:</span> Data Structures &amp; Algorithms, OOP, DBMS, Machine Learning, Cloud Computing</div>
             </div>
@@ -306,15 +322,15 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               <div>
                 <div className="flex justify-between font-bold">
                   <span>Messe Global, Laxmi Lawns</span>
-                  <span className="font-normal font-sans text-gray-700">Aug 2026</span>
+                  <span className="font-normal font-sans text-gray-700">Aug 2025</span>
                 </div>
                 <div className="flex justify-between italic mb-0.5">
                   <span>Backstage Event Operations Coordinator</span>
                   <span className="not-italic font-sans text-gray-600">Pune, India</span>
                 </div>
                 <ul className="list-disc pl-5 space-y-0.5">
-                  <li>Handled backstage operations for a live South Indian cultural event attended by approximately 350+ people, featuring Shobana (Padma Bhushan awardee) and artists including Avial.</li>
-                  <li>Coordinated artist movement, backstage logistics, for support smooth event execution.</li>
+                  <li>Handled backstage operations for a live South Indian cultural event attended by approximately 3,500 people, featuring Shobana (Padma Bhushan awardee) and artists including Kapil.</li>
+                  <li>Coordinated artist movement and backstage logistics to support smooth event execution.</li>
                   <li>Worked with event teams to manage time-sensitive backstage activities in a fast-paced live-event environment.</li>
                 </ul>
               </div>
@@ -328,7 +344,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                   <span>Event Coordinator</span>
                   <span className="not-italic font-sans text-gray-600">Pune, India</span>
                 </div>
-                <ul className="list-disc pl-5">
+                <ul className="list-disc pl-5 space-y-0.5">
                   <li>Coordinated college events, teams, vendors, and logistics, demonstrating leadership, communication, and time-management skills.</li>
                 </ul>
               </div>
