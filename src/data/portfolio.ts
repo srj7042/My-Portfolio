@@ -43,17 +43,17 @@ export const skillCategories: SkillCategory[] = [
   {
     title: "Databases & Storage",
     description: "Relational schema modeling, graph databases, document stores, and persistence.",
-    skills: ["PostgreSQL", "MySQL", "SQLite", "MongoDB", "MongoDB Atlas"]
+    skills: ["PostgreSQL", "MySQL"]
   },
   {
     title: "Cloud & DevOps",
     description: "Infrastructure provisioning, containerization, CI/CD, and cloud platforms.",
-    skills: ["AWS", "Azure", "Docker", "Terraform", "Vercel", "Git", "GitHub"]
+    skills: ["AWS", "Docker", "Terraform", "Vercel", "Git", "GitHub"]
   },
   {
     title: "Core Computer Science",
     description: "Fundamental CS theoretical principles and engineering concepts.",
-    skills: ["Data Structures & Algorithms", "OOP", "DBMS", "Machine Learning", "Cloud Computing"]
+    skills: ["DSA", "OOP", "DBMS", "Machine Learning", "Cloud Computing"]
   }
 ];
 
@@ -134,24 +134,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/srj7042/Abhyaas",
     featured: true
   },
-  {
-    id: "lexcompy",
-    title: "LexCompy",
-    subtitle: "Modern Web Application for Workflow & Code Compliance",
-    category: "Full-Stack Web",
-    shortDescription: "A TypeScript-based web application built to streamline developer workflows and modern software compliance checks.",
-    fullDescription: "LexCompy provides a structured web interface for managing developer tools, evaluating code compliance standards, and organizing project verification workflows.",
-    problem: "Developer tooling and code compliance tracking often lack unified, reactive web interfaces.",
-    whatIBuilt: "Designed the component hierarchy, reactive state management, and user interaction flows in TypeScript.",
-    features: [
-      "Modular TypeScript architecture with strict type safety",
-      "Interactive compliance tracking dashboards and project cards",
-      "Fast Vite build integration with Tailwind CSS styling"
-    ],
-    tech: ["TypeScript", "React", "Vite", "Tailwind CSS"],
-    githubUrl: "https://github.com/srj7042/LexCompy",
-    featured: true
-  },
+
   {
     id: "savdhaan",
     title: "Savdhaan",
