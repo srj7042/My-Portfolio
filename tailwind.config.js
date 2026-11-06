@@ -41,6 +41,21 @@ export default {
         'card-light': '0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.02)',
         'card-hover': '0 10px 15px -3px rgba(16, 185, 129, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
         'card-dark-hover': '0 10px 15px -3px rgba(16, 185, 129, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.4)',
+      },
+      keyframes: {
+        rippling: {
+          '0%': {
+            opacity: '0.6',
+            transform: 'scale(0)',
+          },
+          '100%': {
+            opacity: '0',
+            transform: 'scale(2)',
+          },
+        },
+      },
+      animation: {
+        rippling: 'rippling var(--duration, 600ms) cubic-bezier(0, 0, 0.2, 1) forwards',
       }
     },
   },

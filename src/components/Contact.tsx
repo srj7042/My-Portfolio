@@ -1,6 +1,7 @@
 import React from 'react';
 import { personalInfo } from '../data/portfolio';
 import { Mail, Github, Linkedin, MessageSquare } from 'lucide-react';
+import { RippleButton } from '@/registry/magicui/ripple-button';
 
 export const Contact: React.FC = () => {
   return (
@@ -28,39 +29,42 @@ export const Contact: React.FC = () => {
           
           {/* Email Button */}
           {personalInfo.social.email && (
-            <a
+            <RippleButton
               href={`mailto:${personalInfo.social.email}`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-emerald-600 dark:bg-emerald-500 text-white font-semibold text-sm hover:bg-emerald-700 dark:hover:bg-emerald-600 transition-colors shadow-md active:scale-95"
+              rippleColor="rgba(255, 255, 255, 0.45)"
+              className="gap-2 px-6 py-3 rounded-lg bg-emerald-600 dark:bg-emerald-500 text-white font-semibold text-sm hover:bg-emerald-700 dark:hover:bg-emerald-600 shadow-md active:scale-95 border-0"
             >
               <Mail className="w-4 h-4" />
               <span>Send Email</span>
-            </a>
+            </RippleButton>
           )}
 
           {/* GitHub Button */}
           {personalInfo.social.github && (
-            <a
+            <RippleButton
               href={personalInfo.social.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white dark:bg-[#1c1c21] border border-[#e4e4e7] dark:border-[#27272a] text-[#18181b] dark:text-[#f4f4f5] font-semibold text-sm hover:bg-[#f4f4f5] dark:hover:bg-[#27272a] transition-colors shadow-sm"
+              rippleColor="#ADD8E6"
+              className="gap-2 px-6 py-3 rounded-lg bg-white dark:bg-[#1c1c21] border border-[#e4e4e7] dark:border-[#27272a] text-[#18181b] dark:text-[#f4f4f5] font-semibold text-sm hover:bg-[#f4f4f5] dark:hover:bg-[#27272a] shadow-sm"
             >
               <Github className="w-4 h-4" />
               <span>GitHub</span>
-            </a>
+            </RippleButton>
           )}
 
           {/* LinkedIn Button */}
           {personalInfo.social.linkedin && (
-            <a
+            <RippleButton
               href={personalInfo.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white dark:bg-[#1c1c21] border border-[#e4e4e7] dark:border-[#27272a] text-[#18181b] dark:text-[#f4f4f5] font-semibold text-sm hover:bg-[#f4f4f5] dark:hover:bg-[#27272a] transition-colors shadow-sm"
+              rippleColor="#10b981"
+              className="gap-2 px-6 py-3 rounded-lg bg-white dark:bg-[#1c1c21] border border-[#e4e4e7] dark:border-[#27272a] text-[#18181b] dark:text-[#f4f4f5] font-semibold text-sm hover:bg-[#f4f4f5] dark:hover:bg-[#27272a] shadow-sm"
             >
               <Linkedin className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <span>LinkedIn</span>
-            </a>
+            </RippleButton>
           )}
 
         </div>

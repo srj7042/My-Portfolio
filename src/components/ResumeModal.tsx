@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { personalInfo } from '../data/portfolio';
 import { X, Download, Printer, ExternalLink } from 'lucide-react';
+import { RippleButton } from '@/registry/magicui/ripple-button';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -47,43 +48,47 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           </div>
 
           <div className="flex items-center gap-3">
-            <a
+            <RippleButton
               href="/Suraj_Resume.pdf"
               download="Suraj_Jaiswal_Resume.pdf"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-sm"
+              rippleColor="rgba(255, 255, 255, 0.45)"
+              className="gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold border-0 shadow-sm"
               title="Download Official PDF Resume"
             >
               <Download className="w-4 h-4" />
               <span>Download PDF</span>
-            </a>
+            </RippleButton>
 
-            <a
+            <RippleButton
               href="/Suraj_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-medium transition-colors"
+              rippleColor="#ADD8E6"
+              className="gap-1.5 px-3 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-medium border-0"
               title="Open Original PDF in New Tab"
             >
               <ExternalLink className="w-4 h-4" />
               <span className="hidden sm:inline">Open PDF</span>
-            </a>
+            </RippleButton>
 
-            <button
+            <RippleButton
               onClick={handleDownloadPdf}
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-medium transition-colors"
+              rippleColor="#ADD8E6"
+              className="gap-1.5 px-3 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-medium border-0"
               title="Print Document"
             >
               <Printer className="w-4 h-4" />
               <span className="hidden sm:inline">Print</span>
-            </button>
+            </RippleButton>
 
-            <button
+            <RippleButton
               onClick={onClose}
-              className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white transition-colors"
+              rippleColor="#ef4444"
+              className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white border-0"
               aria-label="Close Resume Viewer"
             >
               <X className="w-5 h-5" />
-            </button>
+            </RippleButton>
           </div>
         </div>
 

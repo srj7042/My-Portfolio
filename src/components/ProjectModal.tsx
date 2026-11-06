@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Project } from '../types/portfolio';
 import { X, Github, ExternalLink, Cpu, CheckCircle2, Layers, AlertCircle } from 'lucide-react';
+import { RippleButton } from '@/registry/magicui/ripple-button';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -36,13 +37,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
-        <button
+        <RippleButton
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-lg bg-black/5 dark:bg-white/5 text-[#52525b] dark:text-[#a1a1aa] hover:text-[#18181b] dark:hover:text-[#f4f4f5] transition-colors"
+          rippleColor="#ef4444"
+          className="absolute top-4 right-4 p-2 rounded-lg bg-black/5 dark:bg-white/5 text-[#52525b] dark:text-[#a1a1aa] hover:text-[#18181b] dark:hover:text-[#f4f4f5] border-0 shadow-none"
           aria-label="Close Project Modal"
         >
           <X className="w-5 h-5" />
-        </button>
+        </RippleButton>
 
         {/* Modal Header */}
         <div className="mb-6">
@@ -129,35 +131,38 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Modal Actions */}
         <div className="mt-8 pt-4 border-t border-[#e4e4e7] dark:border-[#27272a] flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <a
+            <RippleButton
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 dark:bg-emerald-500 text-white font-semibold text-xs hover:bg-emerald-700 dark:hover:bg-emerald-600 transition-colors shadow-sm"
+              rippleColor="rgba(255, 255, 255, 0.45)"
+              className="gap-2 px-4 py-2 rounded-lg bg-emerald-600 dark:bg-emerald-500 text-white font-semibold text-xs hover:bg-emerald-700 dark:hover:bg-emerald-600 border-0 shadow-sm"
             >
               <Github className="w-4 h-4" />
               <span>View Code Repository</span>
-            </a>
+            </RippleButton>
 
             {project.liveUrl && (
-              <a
+              <RippleButton
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-[#1c1c21] border border-[#e4e4e7] dark:border-[#27272a] text-[#18181b] dark:text-[#f4f4f5] font-semibold text-xs hover:bg-[#f4f4f5] dark:hover:bg-[#27272a] transition-colors"
+                rippleColor="#ADD8E6"
+                className="gap-2 px-4 py-2 rounded-lg bg-white dark:bg-[#1c1c21] border border-[#e4e4e7] dark:border-[#27272a] text-[#18181b] dark:text-[#f4f4f5] font-semibold text-xs hover:bg-[#f4f4f5] dark:hover:bg-[#27272a]"
               >
                 <ExternalLink className="w-4 h-4 text-emerald-500" />
                 <span>Live Deployment</span>
-              </a>
+              </RippleButton>
             )}
           </div>
 
-          <button
+          <RippleButton
             onClick={onClose}
-            className="px-4 py-2 text-xs font-semibold text-[#71717a] dark:text-[#a1a1aa] hover:text-[#18181b] dark:hover:text-[#f4f4f5] transition-colors"
+            rippleColor="#ef4444"
+            className="px-4 py-2 text-xs font-semibold text-[#71717a] dark:text-[#a1a1aa] hover:text-[#18181b] dark:hover:text-[#f4f4f5] bg-transparent border-0 shadow-none"
           >
             Close Window
-          </button>
+          </RippleButton>
         </div>
 
       </div>

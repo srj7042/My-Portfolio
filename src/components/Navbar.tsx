@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { personalInfo } from '../data/portfolio';
 import { Sun, Moon, Github, Linkedin, Menu, X, FileText } from 'lucide-react';
+import { RippleButton } from '@/registry/magicui/ripple-button';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -81,9 +82,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
           )}
 
           {/* Theme Toggle Button */}
-          <button
+          <RippleButton
             onClick={toggleTheme}
-            className="p-2 rounded-lg text-[#52525b] dark:text-[#a1a1aa] hover:text-[#18181b] dark:hover:text-[#f4f4f5] hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+            rippleColor="#10b981"
+            className="p-2 rounded-lg text-[#52525b] dark:text-[#a1a1aa] hover:text-[#18181b] dark:hover:text-[#f4f4f5] hover:bg-black/5 dark:hover:bg-white/5 border-0 shadow-none bg-transparent"
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
           >
             {theme === 'dark' ? (
@@ -91,25 +93,27 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
             ) : (
               <Moon className="w-4 h-4 text-emerald-600" />
             )}
-          </button>
+          </RippleButton>
 
           {/* Resume Button */}
-          <button
+          <RippleButton
             onClick={onOpenResume}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-emerald-500 text-white hover:bg-emerald-600 transition-colors shadow-sm"
+            rippleColor="rgba(255, 255, 255, 0.45)"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-emerald-500 text-white hover:bg-emerald-600 hover:-translate-y-0.5 hover:shadow-md hover:shadow-emerald-500/20 active:scale-95 transition-all duration-200 shadow-sm border-0 group"
           >
-            <FileText className="w-3.5 h-3.5" />
+            <FileText className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
             <span>Resume</span>
-          </button>
+          </RippleButton>
 
           {/* Mobile Hamburger Menu Button */}
-          <button
+          <RippleButton
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-[#52525b] dark:text-[#a1a1aa] hover:text-[#18181b] dark:hover:text-[#f4f4f5] hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+            rippleColor="#10b981"
+            className="md:hidden p-2 rounded-lg text-[#52525b] dark:text-[#a1a1aa] hover:text-[#18181b] dark:hover:text-[#f4f4f5] hover:bg-black/5 dark:hover:bg-white/5 border-0 shadow-none bg-transparent"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          </RippleButton>
         </div>
       </div>
 
@@ -127,16 +131,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
             </a>
           ))}
           <div className="pt-2 border-t border-[#e4e4e7] dark:border-[#27272a] flex items-center justify-between">
-            <button
+            <RippleButton
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenResume();
               }}
-              className="flex items-center gap-2 px-4 py-2 w-full text-center justify-center text-xs font-semibold rounded-lg bg-emerald-500 text-white hover:bg-emerald-600 transition-colors"
+              rippleColor="rgba(255, 255, 255, 0.45)"
+              className="flex items-center gap-2 px-4 py-2 w-full text-center justify-center text-xs font-semibold rounded-lg bg-emerald-500 text-white hover:bg-emerald-600 border-0"
             >
               <FileText className="w-4 h-4" />
               <span>View Resume Summary</span>
-            </button>
+            </RippleButton>
           </div>
         </div>
       )}

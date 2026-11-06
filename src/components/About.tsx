@@ -28,7 +28,10 @@ export const About: React.FC = () => {
           {/* Main Bio Paragraphs */}
           <div className="md:col-span-2 space-y-4 text-base text-[#52525b] dark:text-[#a1a1aa] leading-relaxed">
             {personalInfo.aboutParagraphs.map((paragraph, index) => (
-              <p key={index} className="bg-white dark:bg-[#141417] p-5 rounded-xl border border-[#e4e4e7] dark:border-[#27272a] shadow-sm">
+              <p
+                key={index}
+                className="bg-white dark:bg-[#141417] p-5 rounded-xl border border-[#e4e4e7] dark:border-[#27272a] shadow-sm hover:border-emerald-500/40 dark:hover:border-emerald-500/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+              >
                 {paragraph}
               </p>
             ))}
@@ -36,9 +39,9 @@ export const About: React.FC = () => {
 
           {/* Quick Technical Focus Cards */}
           <div className="space-y-3">
-            <div className="p-4 rounded-xl bg-white dark:bg-[#141417] border border-[#e4e4e7] dark:border-[#27272a] shadow-sm">
-              <div className="flex items-center gap-2.5 text-sm font-semibold text-[#18181b] dark:text-[#f4f4f5] mb-1">
-                <Cpu className="w-4 h-4 text-emerald-500" />
+            <div className="p-4 rounded-xl bg-white dark:bg-[#141417] border border-[#e4e4e7] dark:border-[#27272a] shadow-sm hover:border-emerald-500/50 dark:hover:border-emerald-500/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+              <div className="flex items-center gap-2.5 text-sm font-semibold text-[#18181b] dark:text-[#f4f4f5] group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-1">
+                <Cpu className="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform" />
                 <span>Applied Computer Vision</span>
               </div>
               <p className="text-xs text-[#71717a] dark:text-[#a1a1aa] leading-normal">
@@ -46,9 +49,9 @@ export const About: React.FC = () => {
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-white dark:bg-[#141417] border border-[#e4e4e7] dark:border-[#27272a] shadow-sm">
-              <div className="flex items-center gap-2.5 text-sm font-semibold text-[#18181b] dark:text-[#f4f4f5] mb-1">
-                <Server className="w-4 h-4 text-emerald-500" />
+            <div className="p-4 rounded-xl bg-white dark:bg-[#141417] border border-[#e4e4e7] dark:border-[#27272a] shadow-sm hover:border-emerald-500/50 dark:hover:border-emerald-500/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+              <div className="flex items-center gap-2.5 text-sm font-semibold text-[#18181b] dark:text-[#f4f4f5] group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-1">
+                <Server className="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform" />
                 <span>Backend Engineering</span>
               </div>
               <p className="text-xs text-[#71717a] dark:text-[#a1a1aa] leading-normal">
@@ -56,9 +59,9 @@ export const About: React.FC = () => {
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-white dark:bg-[#141417] border border-[#e4e4e7] dark:border-[#27272a] shadow-sm">
-              <div className="flex items-center gap-2.5 text-sm font-semibold text-[#18181b] dark:text-[#f4f4f5] mb-1">
-                <Layers className="w-4 h-4 text-emerald-500" />
+            <div className="p-4 rounded-xl bg-white dark:bg-[#141417] border border-[#e4e4e7] dark:border-[#27272a] shadow-sm hover:border-emerald-500/50 dark:hover:border-emerald-500/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+              <div className="flex items-center gap-2.5 text-sm font-semibold text-[#18181b] dark:text-[#f4f4f5] group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-1">
+                <Layers className="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform" />
                 <span>End-to-End Systems</span>
               </div>
               <p className="text-xs text-[#71717a] dark:text-[#a1a1aa] leading-normal">

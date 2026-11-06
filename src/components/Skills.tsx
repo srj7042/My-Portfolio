@@ -38,7 +38,7 @@ export const Skills: React.FC = () => {
           {skillCategories.map((cat) => (
             <div
               key={cat.title}
-              className="p-5 rounded-xl bg-white dark:bg-[#141417] border border-[#e4e4e7] dark:border-[#27272a] shadow-sm hover:border-emerald-500/40 dark:hover:border-emerald-500/40 transition-all duration-200 group"
+              className="p-5 rounded-xl bg-white dark:bg-[#141417] border border-[#e4e4e7] dark:border-[#27272a] shadow-sm hover:border-emerald-500/50 dark:hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1 transition-all duration-300 group"
             >
               <div className="flex items-center gap-2 mb-2">
                 {categoryIcons[cat.title] || <Code className="w-4 h-4 text-emerald-500" />}

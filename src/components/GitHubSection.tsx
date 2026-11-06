@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { personalInfo } from '../data/portfolio';
 import { Github, ExternalLink } from 'lucide-react';
+import { RippleButton } from '@/registry/magicui/ripple-button';
 
 interface GitHubStats {
   publicRepos: number;
@@ -42,7 +43,7 @@ export const GitHubSection: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Card Container */}
-        <div className="p-8 rounded-2xl bg-white dark:bg-[#141417] border border-[#e4e4e7] dark:border-[#27272a] shadow-sm flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="p-8 rounded-2xl bg-white dark:bg-[#141417] border border-[#e4e4e7] dark:border-[#27272a] shadow-sm hover:border-emerald-500/50 dark:hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-8 group">
           
           {/* Left Column - Avatar & Info */}
           <div className="flex items-center gap-5 w-full md:w-auto">
@@ -90,16 +91,17 @@ export const GitHubSection: React.FC = () => {
 
           {/* Action Button */}
           <div className="shrink-0 w-full md:w-auto">
-            <a
+            <RippleButton
               href={personalInfo.social.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-emerald-600 dark:bg-emerald-500 text-white font-semibold text-sm hover:bg-emerald-700 dark:hover:bg-emerald-600 transition-colors shadow-sm"
+              rippleColor="rgba(255, 255, 255, 0.45)"
+              className="w-full md:w-auto gap-2 px-6 py-3 rounded-lg bg-emerald-600 dark:bg-emerald-500 text-white font-semibold text-sm hover:bg-emerald-700 dark:hover:bg-emerald-600 shadow-sm border-0"
             >
               <Github className="w-4 h-4" />
               <span>View GitHub Profile</span>
               <ExternalLink className="w-3.5 h-3.5 opacity-80" />
-            </a>
+            </RippleButton>
           </div>
 
         </div>

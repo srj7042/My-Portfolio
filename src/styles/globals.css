@@ -56,3 +56,30 @@
 .dark ::-webkit-scrollbar-thumb:hover {
   background: #475569;
 }
+
+/* Magic UI Ripple Animation */
+@keyframes rippling {
+  0% {
+    opacity: 0.6;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.2);
+  }
+}
+
+.animate-rippling {
+  animation: rippling var(--duration, 600ms) cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+
+/* 3D Cylindrical Carousel Helpers */
+.preserve-3d {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { personalInfo } from '../data/portfolio';
 import { ArrowDown, Github, FileText, Terminal, Code2 } from 'lucide-react';
+import { RippleButton } from '@/registry/magicui/ripple-button';
 
 interface HeroProps {
   onOpenResume: () => void;
@@ -55,33 +56,36 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
         <div className="mt-8 flex flex-wrap items-center gap-4">
           
           {/* View Projects CTA */}
-          <a
+          <RippleButton
             href="#projects"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-emerald-600 dark:bg-emerald-500 text-white font-semibold text-sm hover:bg-emerald-700 dark:hover:bg-emerald-600 transition-all shadow-md hover:shadow-emerald-500/20 active:scale-95"
+            rippleColor="rgba(255, 255, 255, 0.45)"
+            className="group px-6 py-3 rounded-lg bg-emerald-600 dark:bg-emerald-500 text-white font-semibold text-sm hover:bg-emerald-700 dark:hover:bg-emerald-600 shadow-md hover:shadow-xl hover:shadow-emerald-500/25 hover:-translate-y-1 active:scale-95 transition-all duration-300"
           >
             <span>View Projects</span>
-            <ArrowDown className="w-4 h-4" />
-          </a>
+            <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
+          </RippleButton>
 
           {/* GitHub CTA */}
-          <a
+          <RippleButton
             href={personalInfo.social.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-white dark:bg-[#1c1c21] border border-[#e4e4e7] dark:border-[#27272a] text-[#18181b] dark:text-[#f4f4f5] font-semibold text-sm hover:bg-[#f4f4f5] dark:hover:bg-[#27272a] transition-all active:scale-95 shadow-sm"
+            rippleColor="#ADD8E6"
+            className="group px-5 py-3 rounded-lg bg-white dark:bg-[#1c1c21] border border-[#e4e4e7] dark:border-[#27272a] text-[#18181b] dark:text-[#f4f4f5] font-semibold text-sm hover:border-emerald-500/60 dark:hover:border-emerald-400/60 hover:bg-[#faf8f5] dark:hover:bg-[#27272a] hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1 active:scale-95 transition-all duration-300 shadow-sm"
           >
-            <Github className="w-4 h-4" />
-            <span>GitHub Profile</span>
-          </a>
+            <Github className="w-4 h-4 group-hover:scale-110 group-hover:text-emerald-500 transition-all duration-300" />
+            <span className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300">GitHub Profile</span>
+          </RippleButton>
 
           {/* Download / View Resume CTA */}
-          <button
+          <RippleButton
             onClick={onOpenResume}
-            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-white dark:bg-[#1c1c21] border border-[#e4e4e7] dark:border-[#27272a] text-[#18181b] dark:text-[#f4f4f5] font-semibold text-sm hover:bg-[#f4f4f5] dark:hover:bg-[#27272a] transition-all active:scale-95 shadow-sm"
+            rippleColor="#10b981"
+            className="group px-5 py-3 rounded-lg bg-white dark:bg-[#1c1c21] border border-[#e4e4e7] dark:border-[#27272a] text-[#18181b] dark:text-[#f4f4f5] font-semibold text-sm hover:border-emerald-500/60 dark:hover:border-emerald-400/60 hover:bg-[#faf8f5] dark:hover:bg-[#27272a] hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1 active:scale-95 transition-all duration-300 shadow-sm"
           >
-            <FileText className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-            <span>Resume</span>
-          </button>
+            <FileText className="w-4 h-4 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-300" />
+            <span className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300">Resume</span>
+          </RippleButton>
         </div>
 
       </div>

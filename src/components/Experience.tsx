@@ -27,11 +27,11 @@ export const Experience: React.FC = () => {
           {experienceList.map((exp, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-[#141417] border border-[#e4e4e7] dark:border-[#27272a] shadow-sm"
+              className="p-6 rounded-2xl bg-white dark:bg-[#141417] border border-[#e4e4e7] dark:border-[#27272a] shadow-sm hover:border-emerald-500/50 dark:hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/5 hover:-translate-y-1 transition-all duration-300 group"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-[#18181b] dark:text-[#f4f4f5]">
+                  <h3 className="text-lg font-bold text-[#18181b] dark:text-[#f4f4f5] group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                     {exp.role}
                   </h3>
                   <p className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
