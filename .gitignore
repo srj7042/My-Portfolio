@@ -58,7 +58,9 @@ run_tests.py
 tests/
 assets/
 !public/assets/
+!public/models/
 .github/
 .lycheeignore
 .lycherc.toml
 __pycache__/
+.playwright-mcp/

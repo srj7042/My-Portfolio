@@ -11,7 +11,6 @@ import { GitHubSection } from './components/GitHubSection';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ResumeModal } from './components/ResumeModal';
-import { CharacterScene } from './components/companion3d/CharacterScene';
 
 export const AppContent: React.FC = () => {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
@@ -33,9 +32,6 @@ export const AppContent: React.FC = () => {
         <GitHubSection />
         <Contact />
       </main>
-
-      {/* 3D Animated WebGL Character Companion */}
-      <CharacterScene />
 
       {/* Footer */}
       <Footer />

@@ -400,3 +400,4 @@ export const CHARACTER_ANIMATION_CLIPS: Record<AnimationState, () => THREE.Anima
   look: createIdleClip,
   click_reaction: createCelebrateClip,
 };
+
