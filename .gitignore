@@ -57,6 +57,7 @@ run_tests.py
 *.py
 tests/
 assets/
+!public/assets/
 .github/
 .lycheeignore
 .lycherc.toml
