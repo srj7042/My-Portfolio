@@ -1,14 +1,15 @@
 export type AnimationState =
   | 'idle'
+  | 'greeting'
   | 'wave'
   | 'smile'
   | 'blink'
-  | 'look'
   | 'walk'
   | 'point'
   | 'think'
   | 'celebrate'
-  | 'greeting'
+  | 'surprised'
+  | 'look'
   | 'click_reaction';
 
 export type SectionName =

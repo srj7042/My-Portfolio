@@ -81,9 +81,12 @@ export const CharacterController: React.FC<CharacterControllerProps> = ({
           stateMachineRef.current.transitionTo('wave', true);
           break;
         case 'body':
-        default:
-          stateMachineRef.current.transitionTo('celebrate', true);
+        default: {
+          const reactions: AnimationState[] = ['celebrate', 'surprised', 'smile'];
+          const chosen = reactions[Math.floor(Math.random() * reactions.length)];
+          stateMachineRef.current.transitionTo(chosen, true);
           break;
+        }
       }
     },
     []
@@ -98,3 +101,4 @@ export const CharacterController: React.FC<CharacterControllerProps> = ({
     />
   );
 };
+

@@ -5,11 +5,12 @@ export const STATE_CONFIGS: Record<AnimationState, StateConfig> = {
   look: { name: 'look', priority: 2, loop: true, defaultDuration: 0 },
   walk: { name: 'walk', priority: 3, loop: true, defaultDuration: 0 },
   smile: { name: 'smile', priority: 4, loop: false, defaultDuration: 2500 },
-  blink: { name: 'blink', priority: 4, loop: false, defaultDuration: 300 },
+  blink: { name: 'blink', priority: 4, loop: false, defaultDuration: 350 },
   think: { name: 'think', priority: 5, loop: false, defaultDuration: 3200 },
   point: { name: 'point', priority: 6, loop: false, defaultDuration: 2800 },
-  wave: { name: 'wave', priority: 7, loop: false, defaultDuration: 3000 },
+  wave: { name: 'wave', priority: 7, loop: false, defaultDuration: 2800 },
   greeting: { name: 'greeting', priority: 8, loop: false, defaultDuration: 3500 },
+  surprised: { name: 'surprised', priority: 9, loop: false, defaultDuration: 1800 },
   celebrate: { name: 'celebrate', priority: 9, loop: false, defaultDuration: 2600 },
   click_reaction: { name: 'click_reaction', priority: 10, loop: false, defaultDuration: 1800 },
 };
@@ -64,3 +65,4 @@ export class AnimationStateMachine {
     }
   }
 }
+

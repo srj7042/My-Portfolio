@@ -35,6 +35,8 @@ export const CharacterModel: React.FC<CharacterModelProps> = ({
   const rootGroupRef = useRef<THREE.Group>(null);
   const headGroupRef = useRef<THREE.Group>(null);
   const armGroupRef = useRef<THREE.Group>(null);
+  const leftArmGroupRef = useRef<THREE.Group>(null);
+  const blushGroupRef = useRef<THREE.Group>(null);
   const shadowMeshRef = useRef<THREE.Mesh>(null);
 
   const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -117,40 +119,95 @@ export const CharacterModel: React.FC<CharacterModelProps> = ({
     let targetY = idleBob;
     let targetRotZ = idleSway;
     let targetScale = 1;
+    let targetBlushOpacity = 0;
 
     switch (state) {
       case 'walk':
         targetY = Math.abs(Math.sin(time * 8)) * 0.12 - 0.02;
         targetRotZ = Math.sin(time * 8) * 0.08;
+        if (armGroupRef.current) {
+          armGroupRef.current.rotation.z = Math.sin(time * 8) * 0.25;
+        }
+        if (leftArmGroupRef.current) {
+          leftArmGroupRef.current.rotation.z = -Math.sin(time * 8) * 0.25;
+        }
+        break;
+
+      case 'greeting':
+        targetRotZ = Math.sin(time * 5) * 0.05;
+        targetBlushOpacity = 0.85;
+        if (armGroupRef.current) {
+          armGroupRef.current.rotation.z = Math.sin(time * 8) * 0.25 + 0.35;
+        }
+        if (headGroupRef.current) {
+          headGroupRef.current.rotation.z = 0.06;
+        }
         break;
 
       case 'wave':
-      case 'greeting':
         targetRotZ = Math.sin(time * 6) * 0.06;
+        targetBlushOpacity = 0.75;
         if (armGroupRef.current) {
-          armGroupRef.current.rotation.z = Math.sin(time * 9) * 0.25 + 0.3;
+          armGroupRef.current.rotation.z = Math.sin(time * 9) * 0.28 + 0.32;
+        }
+        break;
+
+      case 'smile':
+        targetY = idleBob + 0.04;
+        targetRotZ = 0.05;
+        targetBlushOpacity = 0.95;
+        if (headGroupRef.current) {
+          headGroupRef.current.rotation.z = 0.08;
         }
         break;
 
       case 'point':
         targetRotZ = -0.12;
         if (armGroupRef.current) {
-          armGroupRef.current.rotation.z = 0.45;
+          armGroupRef.current.rotation.z = 0.48;
         }
         break;
 
       case 'think':
         targetRotZ = 0.08;
+        targetBlushOpacity = 0.4;
         if (headGroupRef.current) {
-          headGroupRef.current.rotation.z = 0.12;
+          headGroupRef.current.rotation.z = 0.15;
+          headGroupRef.current.rotation.x = -0.08;
+        }
+        if (armGroupRef.current) {
+          armGroupRef.current.rotation.z = 0.38;
         }
         break;
 
       case 'celebrate':
       case 'click_reaction':
         targetY = Math.abs(Math.sin(time * 12)) * 0.28;
-        targetScale = 1.1 + Math.sin(time * 12) * 0.06;
+        targetScale = 1.12 + Math.sin(time * 12) * 0.06;
         targetRotZ = Math.sin(time * 10) * 0.15;
+        targetBlushOpacity = 1;
+        if (armGroupRef.current) {
+          armGroupRef.current.rotation.z = 0.55;
+        }
+        if (leftArmGroupRef.current) {
+          leftArmGroupRef.current.rotation.z = -0.55;
+        }
+        break;
+
+      case 'surprised':
+        targetY = 0.16;
+        targetScale = 1.14;
+        targetRotZ = -0.06;
+        targetBlushOpacity = 0.8;
+        if (headGroupRef.current) {
+          headGroupRef.current.rotation.x = -0.15; // cute startled recoil
+        }
+        if (armGroupRef.current) {
+          armGroupRef.current.rotation.z = 0.32;
+        }
+        if (leftArmGroupRef.current) {
+          leftArmGroupRef.current.rotation.z = -0.32;
+        }
         break;
 
       default:
@@ -163,7 +220,25 @@ export const CharacterModel: React.FC<CharacterModelProps> = ({
             delta
           );
         }
+        if (leftArmGroupRef.current) {
+          leftArmGroupRef.current.rotation.z = THREE.MathUtils.damp(
+            leftArmGroupRef.current.rotation.z,
+            0,
+            6,
+            delta
+          );
+        }
         break;
+    }
+
+    // Blush opacity damping
+    if (blushGroupRef.current) {
+      blushGroupRef.current.traverse((child) => {
+        if ((child as THREE.Mesh).isMesh) {
+          const mat = (child as THREE.Mesh).material as THREE.MeshBasicMaterial;
+          mat.opacity = THREE.MathUtils.damp(mat.opacity, targetBlushOpacity, 6, delta);
+        }
+      });
     }
 
     // Interpolate root position and scale
@@ -216,9 +291,33 @@ export const CharacterModel: React.FC<CharacterModelProps> = ({
           <sphereGeometry args={[0.45, 8, 8]} />
           <meshBasicMaterial transparent opacity={0} />
         </mesh>
+
+        {/* Dynamic Anime Cheek Blushes */}
+        <group ref={blushGroupRef} position={[0, 0.28, 0.08]}>
+          {/* Left Blush */}
+          <mesh position={[-0.24, 0, 0]}>
+            <circleGeometry args={[0.075, 16]} />
+            <meshBasicMaterial
+              color="#fb7185"
+              transparent
+              opacity={0}
+              depthWrite={false}
+            />
+          </mesh>
+          {/* Right Blush */}
+          <mesh position={[0.24, 0, 0]}>
+            <circleGeometry args={[0.075, 16]} />
+            <meshBasicMaterial
+              color="#fb7185"
+              transparent
+              opacity={0}
+              depthWrite={false}
+            />
+          </mesh>
+        </group>
       </group>
 
-      {/* Arm Node for gesture animations */}
+      {/* Right Arm Node for gesture animations */}
       <group ref={armGroupRef} position={[0.4, 0.1, 0.02]}>
         {/* Invisible hotspot for hand click */}
         <mesh
@@ -233,6 +332,9 @@ export const CharacterModel: React.FC<CharacterModelProps> = ({
           <meshBasicMaterial transparent opacity={0} />
         </mesh>
       </group>
+
+      {/* Left Arm Node for dual arm / walking animations */}
+      <group ref={leftArmGroupRef} position={[-0.4, 0.1, 0.02]} />
 
       {/* 3D Two-Sided Character Mesh (Front & Back orthographic alignment) */}
       <group position={[0, 0, 0]}>
